@@ -1,0 +1,151 @@
+@import "reset";
+@import "_variables";
+@import "mixins";
+@import "../node_modules/include-media/dist/include-media";
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.clearfix {
+  &::after {
+    content: "";
+    clear:both;
+    display: block;
+  }
+}
+.flex {
+  width: 1170px;
+  display: flex;
+  align-items: center;
+  margin:auto;
+  justify-content: center;
+}
+body {
+  min-width: 100%;
+  background: #eff7fa;
+}
+.header {
+  width: 1170px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:auto;
+  @include media ("<=1200px") {
+    width: 100%;
+  }
+
+a.logopicture img {
+  padding-top: 61px;
+  margin-bottom: 48px;
+}
+h1 {
+  margin-bottom: 22px;
+  @include fonts ($fontfamily, 35px, 500);
+}
+p {
+  position: relative;
+  margin-bottom: 60px;
+  @include fonts ($fontfamily, 15px, $fw );
+  color: $TowerGray;
+  &:after {
+  position: absolute;
+  top:30px;
+  left: 9px;
+  content: "";
+  width: 150px;
+  height: 2px;
+  background-color: $AquamarineBlue;
+  }
+}
+}
+.navigation {
+  width: 1170px;
+  margin:auto;
+  margin-bottom: 74px;
+  @include media ("<=1200px") {
+    width: 100%;
+  }
+  @include media ("<=768px") {
+    display: none;
+  }
+
+ul {
+  display: flex;
+  justify-content: center;
+}
+li{
+  a {
+    padding: 15px;
+    &:hover {@include btn ($bg, $color, $radius, $fs);
+      }
+    @include fonts ($fontfamily, 15px, $fw);
+    text-decoration: none;
+    color: $TowerGray;
+  }
+}
+}
+
+input[type="submit"] {
+  @include btn ($bg, $color, $radius, $fs);
+  width: 208px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-bottom: $mb;
+}
+footer.wrapper {
+  @extend .flex;
+  @include media ("<=1200px") {
+    width: 100%;}
+}
+main.about {
+  .mainnav{
+    ul{
+    @extend .flex;
+    @include media ("<=1200px") {
+      width: 100%;
+    padding-right: 5px;
+  padding-left: 5px;}
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include media ("<=576px"){
+      flex-direction: column;
+    }
+    }
+  }
+}
+.mainnav {
+  margin-bottom: $mb;
+  ul {
+    li{
+      margin-bottom: 28px;
+      &:hover span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: $AquamarineBlue;
+      }
+      position: relative;
+        a{
+          span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  em {
+    @include fonts ($fontfamily, 20px,$fw);
+    color: #ffffff;
+    padding-bottom: 16px;
+  }
+  strong {
+    @include fonts ($fontfamily, 15px,$fw);
+    color: $BigStone;
+  }

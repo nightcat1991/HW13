@@ -1,0 +1,12 @@
+@mixin btn ($bg, $color, $radius, $fs) {
+  background: $bg;
+  color: $color;
+  border-radius: $radius;
+  font-size: $fs;
+}
+
+@mixin fonts ($fontfamily, $fs, $fw) {
+  font-family: $fontfamily;
+  font-size: $fs;
+  font-weight: $fw;
+}
